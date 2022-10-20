@@ -1,9 +1,8 @@
+import { type } from "@testing-library/user-event/dist/type";
 import React, { Component } from "react";
-type Mystate = {
-  count: number;
-};
-class Sampleclass extends Component<Mystate> {
-  state: Mystate = { count: 0 };
+
+class Sampleclass extends Component {
+  state = { count: 0 };
   handleIncrement = () => {
     this.setState({ count: this.state.count + 1 });
   };

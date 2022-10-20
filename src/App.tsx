@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
       <Homepage />
-      <Sampleclass count={1} />
+      <Sampleclass />
     </div>
   );
 }
