@@ -6,9 +6,10 @@ function Genrelist() {
   const [Curgenre, setCurgenre] = React.useState("ALL");
   return (
     <div className="Genre">
-      {Genre.map((i) => {
+      {Genre.map((i, j) => {
         return (
           <button
+            key={j}
             className={Curgenre == i ? "Onclick" : ""}
             onClick={() => {
               setCurgenre(i);
