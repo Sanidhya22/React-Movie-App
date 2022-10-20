@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 class Sampleclass extends Component {
-  state: = { count: 0 };
+  state = { count: 0 };
   handleIncrement = () => {
     this.setState({ count: this.state.count + 1 });
   };
