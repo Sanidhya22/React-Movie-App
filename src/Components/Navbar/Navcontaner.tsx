@@ -1,13 +1,11 @@
 import * as React from "react";
 import { Component } from "react";
 import DynamicButton from "../Buttons/dynamicButton";
-import Addmovie from "../Buttons/dynamicButton";
-import Searchform from "../Form/Serachform";
-
+import Searchform from "../Form/searchForm";
 import Logo from "../Logo/Logo";
+import "./navContaner.scss";
 
-import "./Navcontaner.scss";
-function Navcontaner() {
+const Navcontaner = () => {
   const buttonclicked = (event: React.MouseEvent<HTMLElement>) => {
     console.log("Button Clicked");
   };
@@ -25,6 +23,6 @@ function Navcontaner() {
       </div>
     </>
   );
-}
+};
 
-export default Navcontaner;
+export default React.memo(Navcontaner);
