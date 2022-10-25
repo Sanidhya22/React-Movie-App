@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Component } from "react";
 import DynamicButton from "../Buttons/dynamicButton";
-import SearchInput from "../Input/Search/Searchinput";
+import Searchinput from "../Input/Search/searchInput";
 
 import "./searchForm.scss";
 type props = {
@@ -12,7 +12,7 @@ const Searchform = ({ btnFunction }: props) => {
     <div className="Search">
       <h2>FIND YOUR MOVIE</h2>
       <div className="Form">
-        <SearchInput />
+        <Searchinput />
         <DynamicButton
           styleClass={"search-btn"}
           btnName={"Search"}
