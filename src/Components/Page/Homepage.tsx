@@ -7,6 +7,7 @@ import Navcontaner from "../Navbar/navContaner";
 import "./Homepage.css";
 
 const Homepage = () => {
+  console.lo("SJh");
   return (
     <div className="homepage">
       <Navcontaner />
