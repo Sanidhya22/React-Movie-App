@@ -67,7 +67,7 @@
   },
   "lint-staged": {
     "src/**/*{js,ts,tsx,html.css}": "prettier --write",
-    "src/**/*tsx": "eslint --fix"
+    "src/**/*tsx": "eslint --max-warnings=0"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
