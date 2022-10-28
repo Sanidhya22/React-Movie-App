@@ -7,6 +7,7 @@ const Movielist = () => {
   return (
     <div className="Movielist">
       <Movielistheader />
+      <h1>hd</h1>
     </div>
   );
 };
