@@ -16,10 +16,11 @@
         "sourceType": "module"
     },
     "plugins": [
+        "prettier",
         "react",
         "@typescript-eslint"
     ],
     "rules": {
-      
+        "prettier/prettier": "error"
     }
 }
