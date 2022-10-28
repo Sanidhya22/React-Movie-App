@@ -8,6 +8,7 @@ import "./navContaner.scss";
 const Navcontaner = () => {
   const buttonclicked = (event: React.MouseEvent<HTMLElement>) => {
     console.log("Button Clicked");
+    console.lo(hcah);
   };
   return (
     <>
