@@ -24,13 +24,6 @@
     //   ],
     "no-unused-vars": "off",
     // "quotes": [2, "single", { "avoidEscape": true }],
-    "no-console": ["error", { "allow": [""] }],
-    "@typescript-eslint/quotes": [
-      "error",
-      "single",
-      {
-        "allowTemplateLiterals": true
-      }
-    ]
+    "no-console": ["error", { "allow": [""] }]
   }
 }
