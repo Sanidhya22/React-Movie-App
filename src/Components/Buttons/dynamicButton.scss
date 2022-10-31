@@ -1,14 +1,13 @@
-.Add-btn{
-    display: inline-block;
-    margin: 20px;
-    position: absolute;
-    top: 0;
-    right: 0;
+.Add-btn {
+  display: inline-block;
+  margin: 20px;
+  position: absolute;
+  top: 0;
+  right: 0;
 
-
-    button{
-    background-color:#555555;
-    opacity: .8;
+  button {
+    background-color: #555555;
+    opacity: 0.8;
     border: none;
     border-radius: 3px;
     width: 150px;
@@ -17,11 +16,12 @@
     font-size: 17px;
     font-weight: 700;
     color: #f65261;
-    cursor: pointer;}
+    cursor: pointer;
+  }
 }
 .search-btn {
-    display: inline-block;
-    button{
+  display: inline-block;
+  button {
     background-color: #f65261;
     border: none;
     border-radius: 3px;
@@ -29,5 +29,6 @@
     height: 45px;
     font-size: 17px;
     color: #ffffff;
-    cursor: pointer;}
+    cursor: pointer;
+  }
 }
