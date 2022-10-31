@@ -6,10 +6,7 @@ import Logo from "../Logo/Logo";
 import "./navContaner.scss";
 
 const Navcontaner = () => {
-  const buttonclicked = (event: React.MouseEvent<HTMLElement>) => {
-    console.log("Button Clicked");
-    console.lo(hcah);
-  };
+  const buttonclicked = (event: React.MouseEvent<HTMLElement>) => {};
   return (
     <>
       <div className="Nav-bg"> </div>

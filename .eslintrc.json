@@ -21,6 +21,22 @@
         "@typescript-eslint"
     ],
     "rules": {
-        "prettier/prettier": "error"
+        "prettier/prettier": "off",
+    //         "error"
+    //     //     {
+    //     //       "endOfLine": "auto"
+    //     //     }
+    //   ],
+        "no-unused-vars": "off",
+        // "quotes": [2, "single", { "avoidEscape": true }],
+        "no-console":["error", {"allow": [""]}],
+        "@typescript-eslint/quotes": [
+            "error",
+            "single",
+            {
+              "allowTemplateLiterals": true
+            }
+          ]
+
     }
 }
