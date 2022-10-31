@@ -1,11 +1,17 @@
 .Search {
-    text-align: left;
-    padding: 1rem 6rem;
-    align-content: center;
-    margin: 3rem 2rem;
-
-    h2 {
-        font-weight: 200;
-        font-size: 40px;
-        color: #ffffff;
-    }}
+  text-align: left;
+  padding: 1rem 6rem;
+  align-content: center;
+  margin: 3rem 2rem;
+  .Form {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  h2 {
+    font-weight: 200;
+    font-size: 40px;
+    color: #ffffff;
+  }
+}

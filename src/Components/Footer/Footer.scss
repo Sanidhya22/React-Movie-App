@@ -1,17 +1,17 @@
 .footer {
-    display: flex;
-    background-color: #555555;
-    height: 60px;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  background-color: #555555;
+  height: 60px;
+  justify-content: center;
+  align-items: center;
 
-    a {
-        text-decoration: none;
-        color: #f65261;
-        font-size: 20px;
-        font-weight: 900;
-    }
-    bdi {
-        font-weight: normal;
-    }
+  a {
+    text-decoration: none;
+    color: #f65261;
+    font-size: 20px;
+    font-weight: 900;
+  }
+  bdi {
+    font-weight: normal;
+  }
 }

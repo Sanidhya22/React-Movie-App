@@ -1,5 +1,4 @@
 import * as React from "react";
-import { Component } from "react";
 import "./Logo.scss";
 const Logo = () => {
   return (
@@ -10,4 +9,4 @@ const Logo = () => {
     </div>
   );
 };
-export default Logo;
+export default React.memo(Logo);
