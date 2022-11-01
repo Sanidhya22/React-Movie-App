@@ -1,5 +1,5 @@
 import * as React from "react";
-import Movielistheader from "../Header/MovielisHeader";
+import Movielistheader from "../Header/MovielistHeader";
 import "./MovieList.scss";
 import MovieCard from "../MovieCard/MovieCard";
 // import * as D from "../MockData/db.json";

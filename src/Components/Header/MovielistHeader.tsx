@@ -2,7 +2,7 @@ import * as React from "react";
 import { Component } from "react";
 import Genrelist from "./Genrelist/GenreList";
 
-import "./MovielisHeader.scss";
+import "./MovielistHeader.scss";
 import Sortdrop from "./SortbyDrop/SortDrop";
 
 function Movielistheader() {

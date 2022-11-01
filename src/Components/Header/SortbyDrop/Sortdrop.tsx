@@ -6,8 +6,8 @@ const Sortdrop = () => {
     <div className="Sortdrop">
       <label className="Lable">Sort By</label>
       <select className="Select">
-        <option value="tesla">Release date</option>
-        <option value="volvo">Rating</option>
+        <option value="Releasedate">Release date</option>
+        <option value="Rating">Rating</option>
       </select>
     </div>
   );
