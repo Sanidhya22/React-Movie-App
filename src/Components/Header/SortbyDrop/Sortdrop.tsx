@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Component } from "react";
-import "./Sortdrop.scss";
+import "./SortDrop.scss";
 const Sortdrop = () => {
   return (
     <div className="Sortdrop">

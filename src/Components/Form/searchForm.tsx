@@ -1,9 +1,9 @@
 import * as React from "react";
 import { Component } from "react";
-import DynamicButton from "../Buttons/dynamicButton";
-import Searchinput from "../Input/Search/searchInput";
+import DynamicButton from "../Buttons/DynamicButton";
+import Searchinput from "../Input/Search/SearchInput";
 
-import "./searchForm.scss";
+import "./SearchForm.scss";
 type props = {
   btnFunction: React.MouseEventHandler<HTMLButtonElement>;
 };

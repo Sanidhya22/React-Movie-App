@@ -1,9 +1,10 @@
 import * as React from "react";
 import { Component } from "react";
+import Genrelist from "./Genrelist/GenreList";
 
-import Genrelist from "./Genrelist/Genrelist";
-import "./Movielistheader.scss";
-import Sortdrop from "./SortbyDrop/Sortdrop";
+import "./MovielisHeader.scss";
+import Sortdrop from "./SortbyDrop/SortDrop";
+
 function Movielistheader() {
   return (
     <div className="Movielistheader">

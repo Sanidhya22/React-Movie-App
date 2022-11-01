@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Component } from "react";
-import "./Genrelist.scss";
+import "./GenreList.scss";
 function Genrelist() {
   const Genre = ["ALL", "DOCUMENTRY", "COMEDY", "HORROR", "CRIME"];
   const [Curgenre, setCurgenre] = React.useState("ALL");
