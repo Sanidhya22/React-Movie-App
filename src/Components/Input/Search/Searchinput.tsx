@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Component } from "react";
-import "./searchInput.scss";
+import "./SearchInput.scss";
 const Searchinput = () => {
   return <input type="text" placeholder="What do you want to watch ?" />;
 };

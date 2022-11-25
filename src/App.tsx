@@ -1,11 +1,9 @@
 import React, { useEffect } from "react";
-import logo from "./logo.svg";
 import "./App.css";
-
-import Homepage from "./Components/Page/Homepage";
+import Homepage from "./Components/Page/HomePage";
 
 function App() {
-  console.log("Test Husky");
+  // console.log("Test Husky");
   useEffect(() => {
     document.title = `${process.env.REACT_APP_TITLE}`;
   }, []);

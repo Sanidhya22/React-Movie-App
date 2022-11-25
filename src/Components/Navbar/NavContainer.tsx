@@ -1,12 +1,14 @@
 import * as React from "react";
 import { Component } from "react";
-import DynamicButton from "../Buttons/dynamicButton";
-import Searchform from "../Form/searchForm";
+import DynamicButton from "../Buttons/DynamicButton";
+import Searchform from "../Form/SearchForm";
 import Logo from "../Logo/Logo";
-import "./navContaner.scss";
+import "./NavContaner.scss";
 
 const Navcontaner = () => {
-  const buttonclicked = (event: React.MouseEvent<HTMLElement>) => {};
+  const buttonclicked = (event: React.MouseEvent<HTMLElement>) => {
+    console.log("Button cicked");
+  };
   return (
     <>
       <div className="Nav-bg"> </div>

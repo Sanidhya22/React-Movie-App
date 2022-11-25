@@ -23,7 +23,8 @@
     //     //     }
     //   ],
     "no-unused-vars": "off",
+    "no-empty-function": "off"
     // "quotes": [2, "single", { "avoidEscape": true }],
-    "no-console": ["error", { "allow": [""] }]
+    // "no-console": ["error", { "allow": [""] }]
   }
 }
