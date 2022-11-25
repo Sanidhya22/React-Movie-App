@@ -7,7 +7,7 @@ import "./SearchForm.scss";
 type props = {
   btnFunction: React.MouseEventHandler<HTMLButtonElement>;
 };
-const Searchform = ({ btnFunction }: props) => {
+const Searchform: React.FC<props> = ({ btnFunction }) => {
   return (
     <div className="Search">
       <h2>FIND YOUR MOVIE</h2>

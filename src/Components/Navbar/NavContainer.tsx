@@ -5,7 +5,7 @@ import Searchform from "../Form/SearchForm";
 import Logo from "../Logo/Logo";
 import "./NavContaner.scss";
 
-const Navcontaner = () => {
+const Navcontaner: React.FC = () => {
   const buttonclicked = (event: React.MouseEvent<HTMLElement>) => {
     console.log("Button cicked");
   };
