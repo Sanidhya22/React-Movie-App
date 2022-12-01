@@ -6,7 +6,8 @@
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react-hooks/recommended"
   ],
   "overrides": [],
   "parser": "@typescript-eslint/parser",
@@ -14,18 +15,13 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["prettier", "react", "@typescript-eslint"],
+  "plugins": ["prettier", "react", "@typescript-eslint", "react-hooks"],
   "rules": {
     "prettier/prettier": "off",
     "react/prop-types": "off",
-    //         "error"
-    //     //     {
-    //     //       "endOfLine": "auto"
-    //     //     }
-    //   ],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
     "no-unused-vars": "off",
     "no-empty-function": "off"
-    // "quotes": [2, "single", { "avoidEscape": true }],
-    // "no-console": ["error", { "allow": [""] }]
   }
 }
