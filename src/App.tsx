@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "./App.css";
-import Homepage from "./Components/Page/HomePage";
+import Homepage from "./Page/HomePage";
 import { Helmet } from "react-helmet";
 function App() {
   return (

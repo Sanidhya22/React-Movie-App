@@ -1,21 +1,31 @@
 import React, { useState } from "react";
 import "./MovieCard.scss";
-import { Movie, Moviecardprops } from "../Types/Types";
+import { Movie, Moviecardprops } from "../../types/Types";
 import { GoKebabVertical } from "react-icons/go";
 import { GrClose } from "react-icons/gr";
-const MovieCard: React.FC<Moviecardprops> = ({ movie, handleDelete }) => {
+const MovieCard: React.FC<Moviecardprops> = ({
+  movie,
+  handleDelete,
+  Openmoviedetail,
+}) => {
   return (
     <div className="movie-item" key={movie.id}>
       {/* <Link to={`/movies/${movie.id}`}>
         // <img src={movie.poster_path} alt="movie-img" />
       </Link> */}
-      <img src={movie.poster_path} alt="movie-img" />
+      <img
+        onClick={(e) => {
+          Openmoviedetail(movie, e);
+        }}
+        src={movie.poster_path}
+        alt="movie-img"
+      />
       <div className="title-date">
         <h2>{movie.title}</h2>
         <div className="date">{movie.release_date.slice(0, 4)}</div>
       </div>
       <p className="genre">{movie.genres.join(", ")}</p>
-      <Moviecardtoffle moviedata={movie} handledelete={handleDelete} />
+      <MoviecardToffle moviedata={movie} handledelete={handleDelete} />
     </div>
   );
 };
@@ -28,7 +38,7 @@ type Moviecardtoggleprops = {
     event: React.MouseEvent<HTMLElement>
   ) => void;
 };
-const Moviecardtoffle: React.FC<Moviecardtoggleprops> = (props) => {
+const MoviecardToffle: React.FC<Moviecardtoggleprops> = (props) => {
   const [OpenToggle, setOpenToggle] = useState(false);
   const Closetoggle = () => {
     setOpenToggle(!OpenToggle);
@@ -36,7 +46,7 @@ const Moviecardtoffle: React.FC<Moviecardtoggleprops> = (props) => {
   return (
     <div className="Moviecardtoffle">
       {OpenToggle ? (
-        <Cardtofflebutton
+        <CardtoggleBtn
           Closetoggle={Closetoggle}
           data={props.moviedata}
           handledelete={props.handledelete}
@@ -62,7 +72,7 @@ export interface Cardtofflebuttonprops {
     event: React.MouseEvent<HTMLElement>
   ) => void;
 }
-const Cardtofflebutton: React.FC<Cardtofflebuttonprops> = (props) => {
+const CardtoggleBtn: React.FC<Cardtofflebuttonprops> = (props) => {
   console.log(props);
   const data = props.data;
   const Closetoggle = props.Closetoggle;

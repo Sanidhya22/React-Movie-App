@@ -3,7 +3,7 @@ import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import DatePickerField from "./DatePicker";
 import { GrClose } from "react-icons/gr";
-import "./Editmovieform.scss";
+import "./MovieEditModal.scss";
 
 interface MyFormValues {
   title: string;
@@ -17,7 +17,7 @@ type Editmovieformprop = {
   movieid: number | null;
   handleDeleteFalse: () => void;
 };
-export const Editmovieform: React.FC<Editmovieformprop> = ({
+const MovieEditModal: React.FC<Editmovieformprop> = ({
   movieid,
   handleDeleteFalse,
 }) => {
@@ -93,4 +93,4 @@ export const Editmovieform: React.FC<Editmovieformprop> = ({
     </div>
   );
 };
-export default Editmovieform;
+export default MovieEditModal;

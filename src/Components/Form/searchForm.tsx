@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Component } from "react";
-import DynamicButton from "../Buttons/DynamicButton";
+import DynamicButton from "../Buttons/DynamicBtn";
 import Searchinput from "../Input/Search/SearchInput";
 
 import "./SearchForm.scss";

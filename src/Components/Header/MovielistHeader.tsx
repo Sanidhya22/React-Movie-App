@@ -5,7 +5,7 @@ import Genrelist from "./Genrelist/GenreList";
 import "./MovielistHeader.scss";
 import Sortdrop from "./SortbyDrop/SortDrop";
 
-const Movielistheader: React.FC = () => {
+const MovieListHeader: React.FC = () => {
   return (
     <div className="Movielistheader">
       <Genrelist />
@@ -14,4 +14,4 @@ const Movielistheader: React.FC = () => {
   );
 };
 
-export default Movielistheader;
+export default MovieListHeader;

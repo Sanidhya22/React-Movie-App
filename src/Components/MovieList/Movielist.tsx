@@ -3,11 +3,14 @@ import Movielistheader from "../Header/MovielistHeader";
 import "./MovieList.scss";
 import MovieCard from "../MovieCard/MovieCard";
 import DeleteModal from "../DeleteModal/DeleteModal";
-import { Movie, popup } from "../Types/Types";
-import { getallUsers } from "../Api/MovieData";
+import { Movie, popup } from "../../types/Types";
+import { getallUsers } from "../../Api";
 import Modals from "../Modals/Modals";
-
-const Movielist: React.FC = () => {
+import MovieEditModal from "../Forms/MovieEditModal";
+export interface props {
+  Openmoviedetail: (movie: Movie) => void;
+}
+const MovieList: React.FC<props> = ({ Openmoviedetail }) => {
   const [Movies, setv] = React.useState<Array<Movie>>([]);
   const [popup, setPopup] = React.useState<popup>({
     show: false, // initial values set to false and null
@@ -56,11 +59,12 @@ const Movielist: React.FC = () => {
     fetchdata();
   }, []);
 
-  const movieList = Movies.map((movie: Movie) => {
+  const MovieList = Movies.map((movie: Movie) => {
     return (
       <MovieCard
         movie={movie}
         handleDelete={handleDelete}
+        Openmoviedetail={Openmoviedetail}
         popup={popup}
         key={movie.id}
       />
@@ -71,16 +75,22 @@ const Movielist: React.FC = () => {
     <div className="Movielist">
       <Movielistheader />
       <p className="movie-count">{Movies.length} movies found</p>
-      <div className="movies">{movieList}</div>
-      {popup.show && (
-        <Modals
-          handleDeleteTrue={handleDeleteTrue}
-          handleDeleteFalse={handleDeleteFalse}
-          movieid={popup.id}
-          modaltype={popup.modaltype}
-        />
-      )}
+      <div className="movies">{MovieList}</div>
+      <Modals open={popup.show}>
+        {popup.modaltype === "deletemodal" ? (
+          <DeleteModal
+            handleDeleteFalse={handleDeleteFalse}
+            handleDeleteTrue={handleDeleteTrue}
+          />
+        ) : null}
+        {popup.modaltype === "editmoviemodal" ? (
+          <MovieEditModal
+            movieid={popup.id}
+            handleDeleteFalse={handleDeleteFalse}
+          />
+        ) : null}
+      </Modals>
     </div>
   );
 };
-export default React.memo(Movielist);
+export default React.memo(MovieList);

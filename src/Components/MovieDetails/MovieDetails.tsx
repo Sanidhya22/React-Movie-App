@@ -1,47 +1,41 @@
 import React from "react";
 import "./MovieDetails.scss";
-import { TypeMovie } from "../Types/Types";
-import * as consts from "../constants/Constants";
+import { Movie, TypeMovie } from "../../types/Types";
+import * as consts from "../../constants/Constants";
+import { BsSearch } from "react-icons/bs";
+export interface props {
+  closemoviedetail: () => void;
+  movie?: Movie;
+}
 
-const MovieDetails: React.FC<TypeMovie> = (movie) => {
-  const {
-    id,
-    title,
-    tagline,
-    vote_average,
-    vote_count,
-    release_date,
-    poster_path,
-    overview,
-    budget,
-    revenue,
-    genres,
-    runtime,
-  } = movie;
-
+const MovieDetails: React.FC<props> = ({ closemoviedetail, movie }) => {
   return (
     <>
-      <div className="movie-detail" key={id}>
+      <BsSearch onClick={closemoviedetail} />
+      <div className="movie-detail" key={movie?.id}>
         <div className="movie-img">
-          <img src={poster_path} alt="movie" />
+          <img src={movie?.poster_path} alt="movie" />
         </div>
         <div className="movie-content">
           <div className="heading-box">
-            <h2>{title}</h2>
-            <div className="rate-circle">{vote_average}</div>
+            <h2>{movie?.title}</h2>
+            <div className="rate-circle">{movie?.vote_average}</div>
           </div>
-          <p>{genres ? genres.join(", ") : ""}</p>
+          <p className="movie-genere">
+            {movie?.genres ? movie?.genres.join(", ") : ""}
+          </p>
           <div className="small-detail">
             <div className="year-relesed">
-              <span>{release_date ? release_date.slice(0, 4) : ""}</span>{" "}
-              {consts.movie.movieDetails.YEAR}
+              <span>
+                {movie?.release_date ? movie?.release_date.slice(0, 4) : ""}
+              </span>{" "}
             </div>
             <div className="min-long">
-              <span>{runtime ? runtime : 0}</span>{" "}
+              <span>{movie?.runtime ? movie?.runtime : 0}</span>{" "}
               {consts.movie.movieDetails.MIN}
             </div>
           </div>
-          <p>{overview}</p>
+          <p className="movie-overview">{movie?.overview}</p>
         </div>
       </div>
     </>

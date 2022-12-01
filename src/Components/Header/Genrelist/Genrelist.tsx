@@ -2,7 +2,7 @@ import * as React from "react";
 import { Component } from "react";
 import "./GenreList.scss";
 const Genre = ["ALL", "DOCUMENTRY", "COMEDY", "HORROR", "CRIME"];
-const Genrelist: React.FC = () => {
+const GenreList: React.FC = () => {
   const [Curgenre, setCurgenre] = React.useState("ALL");
   return (
     <div className="Genre">
@@ -22,4 +22,4 @@ const Genrelist: React.FC = () => {
     </div>
   );
 };
-export default Genrelist;
+export default GenreList;

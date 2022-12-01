@@ -1,6 +1,6 @@
 import React, { ReactText } from "react";
-import DynamicButton from "../Buttons/DynamicButton";
-import { Deletemodalprops } from "../Types/Types";
+import DynamicButton from "../Buttons/DynamicBtn";
+import { Deletemodalprops } from "../../types/Types";
 import "./DeleteModal.scss";
 import { GrClose } from "react-icons/gr";
 const DeleteModal: React.FC<Deletemodalprops> = ({

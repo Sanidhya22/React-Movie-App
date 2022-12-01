@@ -6,6 +6,7 @@ export type Moviecardprops = {
     event: React.MouseEvent<HTMLElement>
   ) => void;
   movie: Movie;
+  Openmoviedetail: (movie: Movie, event: React.MouseEvent<HTMLElement>) => void;
 };
 export interface Movie {
   id: number;
