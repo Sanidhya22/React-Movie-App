@@ -24,7 +24,7 @@ export const movie = {
 
   movieDetails: {
     YEAR: "Year",
-    MIN: "Mins",
+    MIN: "mins",
   },
 
   movieList: {

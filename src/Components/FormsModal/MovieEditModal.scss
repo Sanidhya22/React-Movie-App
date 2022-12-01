@@ -1,0 +1,76 @@
+.FormModalContaner {
+  color: white;
+  z-index: 1;
+  width: 700px;
+  height: 600px;
+  background: #232323;
+  display: flex;
+  border-radius: 5px;
+  position: relative;
+  flex-direction: column;
+  padding: 5px 40px;
+  .close {
+    top: 2%;
+    position: absolute;
+    right: 3%;
+  }
+}
+.Two-Field{
+  display: flex;
+}
+.Form-Title {
+  font-style: normal;
+  font-weight: 300;
+  font-size: 40px;
+  line-height: 49px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+.Label-Title {
+  padding: 10px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.888889px;
+  text-transform: uppercase;
+  color: #f65261;
+  mix-blend-mode: normal;
+  opacity: 0.8;
+}
+.Left-Input {
+  background: rgba(50, 50, 50, 0.948044);
+  mix-blend-mode: normal;
+  opacity: 0.8;
+  border-radius: 4px;
+  width: 425px;
+  height: 57px;
+  border-radius: 4px;
+  opacity: 80.31%;
+}
+.Right-Input {
+  background: rgba(50, 50, 50, 0.948044);
+  mix-blend-mode: normal;
+  opacity: 0.8;
+  border-radius: 4px;
+  width: 225px;
+  height: 57px;
+  border-radius: 4px;
+  opacity: 80.31%;
+}
+
+.Bottom-field {
+  background: rgba(50, 50, 50, 0.948044);
+  mix-blend-mode: normal;
+  opacity: 0.8;
+  border-radius: 4px;
+  width: 100%;
+  height: 100px;
+  border-radius: 4px;
+  opacity: 80.31%;
+}
+.Label-Input{
+  display: flex;
+  flex-direction: column;
+}

@@ -6,7 +6,7 @@ import DeleteModal from "../DeleteModal/DeleteModal";
 import { Movie, popup } from "../../types/Types";
 import { getallUsers } from "../../Api";
 import Modals from "../Modals/Modals";
-import MovieEditModal from "../Forms/MovieEditModal";
+import MovieEditModal from "../FormsModal/MovieEditModal";
 export interface props {
   Openmoviedetail: (movie: Movie) => void;
 }

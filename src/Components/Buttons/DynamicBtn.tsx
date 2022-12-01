@@ -10,7 +10,9 @@ const DynamicButton: React.FC<props> = (props) => {
   const { styleClass, btnName, btnFunction } = props;
   return (
     <div className={styleClass}>
-      <button onClick={btnFunction}>{btnName}</button>
+      <button type="submit" onClick={btnFunction}>
+        {btnName}
+      </button>
     </div>
   );
 };
