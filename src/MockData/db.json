@@ -14,7 +14,7 @@
       "genres": ["Drama", "Romance"],
       "runtime": 106
     },
-   
+
     {
       "id": 181808,
       "title": "Star Wars: The Last Jedi",
@@ -127,7 +127,7 @@
       "genres": ["Drama", "Fantasy", "Romance"],
       "runtime": 123
     },
- 
+
     {
       "id": 141052,
       "title": "Justice League",
@@ -156,8 +156,7 @@
       "genres": ["Action", "Fantasy", "Science Fiction", "Adventure"],
       "runtime": 111
     },
-    
-   
+
     {
       "id": 335984,
       "title": "Blade Runner 2049",
@@ -172,7 +171,7 @@
       "genres": ["Mystery", "Science Fiction", "Thriller"],
       "runtime": 163
     },
- 
+
     {
       "id": 300668,
       "title": "Annihilation",
@@ -201,6 +200,5 @@
       "genres": ["Action", "Adventure", "Comedy", "Family"],
       "runtime": 119
     }
-   
   ]
 }
