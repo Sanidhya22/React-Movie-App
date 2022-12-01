@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Component } from "react";
 import "./SortDrop.scss";
-const Sortdrop = () => {
+const SortDrop: React.FC = () => {
   return (
     <div className="Sortdrop">
       <label className="Lable">Sort By</label>
@@ -12,4 +12,4 @@ const Sortdrop = () => {
     </div>
   );
 };
-export default Sortdrop;
+export default SortDrop;

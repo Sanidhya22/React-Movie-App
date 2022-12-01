@@ -1,6 +1,6 @@
 import * as React from "react";
 import "./Logo.scss";
-const Logo = () => {
+const Logo: React.FC = () => {
   return (
     <div className="logo">
       <a href="/">

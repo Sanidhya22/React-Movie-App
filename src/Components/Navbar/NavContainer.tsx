@@ -1,11 +1,11 @@
 import * as React from "react";
 import { Component } from "react";
-import DynamicButton from "../Buttons/DynamicButton";
+import DynamicButton from "../Buttons/DynamicBtn";
 import Searchform from "../Form/SearchForm";
 import Logo from "../Logo/Logo";
 import "./NavContaner.scss";
 
-const Navcontaner = () => {
+const NavContaner: React.FC = () => {
   const buttonclicked = (event: React.MouseEvent<HTMLElement>) => {
     console.log("Button cicked");
   };
@@ -25,4 +25,4 @@ const Navcontaner = () => {
   );
 };
 
-export default React.memo(Navcontaner);
+export default React.memo(NavContaner);

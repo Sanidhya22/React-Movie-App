@@ -1,13 +1,13 @@
 import * as React from "react";
 import { Component } from "react";
-import DynamicButton from "../Buttons/DynamicButton";
+import DynamicButton from "../Buttons/DynamicBtn";
 import Searchinput from "../Input/Search/SearchInput";
 
 import "./SearchForm.scss";
 type props = {
   btnFunction: React.MouseEventHandler<HTMLButtonElement>;
 };
-const Searchform = ({ btnFunction }: props) => {
+const Searchform: React.FC<props> = ({ btnFunction }) => {
   return (
     <div className="Search">
       <h2>FIND YOUR MOVIE</h2>

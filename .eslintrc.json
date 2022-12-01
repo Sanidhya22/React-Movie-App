@@ -17,6 +17,7 @@
   "plugins": ["prettier", "react", "@typescript-eslint"],
   "rules": {
     "prettier/prettier": "off",
+    "react/prop-types": "off",
     //         "error"
     //     //     {
     //     //       "endOfLine": "auto"
