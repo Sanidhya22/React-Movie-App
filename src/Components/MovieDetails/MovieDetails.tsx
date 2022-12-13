@@ -1,21 +1,29 @@
 import React from "react";
 import "./MovieDetails.scss";
-import { Movie, TypeMovie } from "../../types/Types";
 import * as consts from "../../constants/Constants";
 import { BsSearch } from "react-icons/bs";
 import Logo from "../Logo/Logo";
-export interface props {
-  closemoviedetail: () => void;
-  movie?: Movie;
-}
+import { AppState } from "../../redux/reducers/RootReducer";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  OpenCloseShowMovieDetail,
+  SetMovieDetail,
+} from "../../redux/actions/MovieAction";
+import { Dispatch } from "../../redux/reducers/RootReducer";
 
-const MovieDetails: React.FC<props> = ({ closemoviedetail, movie }) => {
+const MovieDetails: React.FC = () => {
+  const dispatch: Dispatch = useDispatch();
+  const movie = useSelector((state: AppState) => state.Popup.Moviedetail);
+  const HandelClose = () => {
+    dispatch(OpenCloseShowMovieDetail());
+    dispatch(SetMovieDetail({}));
+  };
   return (
     <>
       <div className="movie-detail" key={movie?.id}>
         <div className="top">
           <Logo />
-          <BsSearch className="search" size={30} onClick={closemoviedetail} />
+          <BsSearch className="search" size={30} onClick={HandelClose} />
         </div>
         <div className="movie-info">
           <div className="movie-img">

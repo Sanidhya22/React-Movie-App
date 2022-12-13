@@ -5,31 +5,31 @@ import DatePickerField from "./DatePicker";
 import { GrClose } from "react-icons/gr";
 import "./MovieEditModal.scss";
 import DynamicBtn from "../Buttons/DynamicBtn";
+import { SetModal } from "../../redux/actions/MovieAction";
+import { AppState, Dispatch } from "../../redux/reducers/RootReducer";
+import { useDispatch, useSelector } from "react-redux";
+import { Movie } from "../../types/Types";
 
 interface MyFormValues {
-  title: string;
-  release_date: string;
-  poster_path: string;
-  vote_average: number;
-  runtime: number;
+  title?: string;
+  release_date?: string;
+  poster_path?: string;
+  vote_average?: number;
+  runtime?: number;
   overview: string;
 }
-type Editmovieformprop = {
-  movieid: number | null;
-  handleDeleteFalse: () => void;
-};
-const MovieEditModal: React.FC<Editmovieformprop> = ({
-  movieid,
-  handleDeleteFalse,
-}) => {
+
+const MovieEditModal: React.FC = () => {
+  const dispatch: Dispatch = useDispatch();
+  const Movie = useSelector((state: AppState) => state.Popup.ModalMovie);
   const dropdownOptions = [
     { key: "Select Genere", value: "" },
     { key: "React", value: "react" },
     { key: "Angular", value: "angular" },
   ];
-  console.log(movieid);
-  const FormTitle = movieid ? "EDIT Movie" : "ADD Movie";
-  const initialValues: MyFormValues = {
+  console.log(Movie);
+  const FormTitle = Object.keys(Movie).length == 0 ? "ADD Movie" : "EDIT Movie";
+  const SampleValues: MyFormValues = {
     title: "",
     release_date: "08/02/1999",
     poster_path: "",
@@ -37,8 +37,22 @@ const MovieEditModal: React.FC<Editmovieformprop> = ({
     runtime: 0,
     overview: "",
   };
+  const { title, release_date, poster_path, vote_average, runtime, overview } =
+    Movie;
+  console.log("title");
+  const initialValues = {
+    title: title || "",
+    release_date: release_date || "",
+    poster_path: poster_path || "",
+    vote_average: vote_average || 0.0,
+    runtime: runtime || 0,
+    overview: overview || "",
+  };
   const onSubmit = (values: any) => {
     console.log("Form data", values.title);
+  };
+  const handelclose = () => {
+    dispatch(SetModal({}, ""));
   };
 
   const validationSchema = Yup.object({
@@ -59,90 +73,103 @@ const MovieEditModal: React.FC<Editmovieformprop> = ({
   return (
     <div className="FormModalContaner">
       <h1 className="Form-Title">{FormTitle}</h1>
-      <GrClose className="close" onClick={handleDeleteFalse} />
+      <GrClose className="close" onClick={handelclose} />
       <Formik
         initialValues={initialValues}
         onSubmit={onSubmit}
         validationSchema={validationSchema}
       >
-        <Form>
-          <div className="Two-Field">
-            <div className="Label-Input">
-              <label className="Label-Title" htmlFor="Title">
-                Title
-              </label>
-              <Field
-                className="Left-Input"
-                id="title"
-                name="title"
-                placeholder="Title"
-              />
+        {({ values, handleChange, setValues, setFieldValue }) => (
+          <Form>
+            <div className="Two-Field">
+              <div className="Label-Input">
+                <label className="Label-Title" htmlFor="Title">
+                  Title
+                </label>
+                <Field
+                  className="Left-Input"
+                  id="title"
+                  name="title"
+                  placeholder="Title"
+                  onChange={handleChange}
+                  // value={values.title}
+                />
+              </div>
             </div>
-            <div className="Label-Input">
-              <label className="Label-Title" htmlFor="release_date">
-                Release Date
-              </label>
-              <DatePickerField className="Right-Input" name="release_date" />
-            </div>
-          </div>
-          <div className="Two-Field">
-            <div className="Label-Input">
-              <label className="Label-Title" htmlFor="firstName">
-                URL
-              </label>
-              <Field
-                className="Left-Input"
-                id="poster_path"
-                name="poster_path"
-                placeholder="URL"
-              />
+            <div className="Two-Field">
+              <div className="Label-Input">
+                <label className="Label-Title" htmlFor="firstName">
+                  URL
+                </label>
+                <Field
+                  className="Left-Input"
+                  id="poster_path"
+                  name="poster_path"
+                  placeholder="URL"
+                  onChange={handleChange}
+                  // value={values.poster_path}
+                />
+              </div>
+
+              <div className="Label-Input">
+                <label className="Label-Title" htmlFor="firstName">
+                  Rating
+                </label>
+                <Field
+                  className="Right-Input"
+                  id="vote_average"
+                  name="vote_average"
+                  placeholder="Rating"
+                  onChange={handleChange}
+                  // value={values.vote_average}
+                />
+              </div>
             </div>
 
+            <div className="Two-Field">
+              <div className="Label-Input">
+                <label className="Label-Title" htmlFor="firstName">
+                  Runtime
+                </label>
+                <Field
+                  className="Right-Input"
+                  id="runtime"
+                  name="runtime"
+                  placeholder="Movie Time"
+                  onChange={handleChange}
+                  // value={values.runtime}
+                />
+              </div>
+            </div>
             <div className="Label-Input">
               <label className="Label-Title" htmlFor="firstName">
-                Rating
+                Overview
               </label>
               <Field
-                className="Right-Input"
-                id="vote_average"
-                name="vote_average"
-                placeholder="Rating"
-              />
+                className="Bottom-field"
+                component="textarea"
+                id="overview"
+                name="overview"
+                placeholder="Movie Overview"
+                onChange={handleChange}
+                // value={values.overview}
+              ></Field>
             </div>
-          </div>
-
-          <div className="Two-Field">
-            <div className="Label-Input">
-              <label className="Label-Title" htmlFor="firstName">
-                Runtime
-              </label>
-              <Field
-                className="Right-Input"
-                id="runtime"
-                name="runtime"
-                placeholder="Movie Time"
-              />
-            </div>
-          </div>
-          <div className="Label-Input">
-            <label className="Label-Title" htmlFor="firstName">
-              Overview
-            </label>
-            <Field
-              className="Bottom-field"
-              component="textarea"
-              id="overview"
-              name="overview"
-              placeholder="Movie Overview"
-            ></Field>
-          </div>
-          <DynamicBtn
-            styleClass={"search-btn"}
-            btnName={"Submit"}
-            btnFunction={onSubmit}
-          />
-          {/* <button type="submit">Submit</button> */}
-        </Form>
+            <DynamicBtn
+              styleClass={"search-btn"}
+              btnName={"Submit"}
+              btnFunction={onSubmit}
+            />
+            {/* <button
+              onClick={() => {
+                setValues(Movie);
+              }}
+              type="submit"
+            >
+              Reset{" "}
+            </button> */}
+          </Form>
+        )}
       </Formik>
     </div>
   );

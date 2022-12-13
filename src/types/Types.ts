@@ -1,12 +1,5 @@
 export type Moviecardprops = {
-  popup: popup;
-  handleDelete: (
-    id: number,
-    modaltype: string,
-    event: React.MouseEvent<HTMLElement>
-  ) => void;
   movie: Movie;
-  Openmoviedetail: (movie: Movie, event: React.MouseEvent<HTMLElement>) => void;
 };
 export interface Movie {
   id: number;
@@ -36,12 +29,3 @@ export type TypeMovie = {
   genres: [string];
   runtime: number;
 };
-export type popup = {
-  show: boolean;
-  id: null | number;
-  modaltype: string;
-};
-export interface Deletemodalprops {
-  handleDeleteTrue: () => void;
-  handleDeleteFalse: () => void;
-}
