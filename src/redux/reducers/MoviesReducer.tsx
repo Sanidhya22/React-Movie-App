@@ -1,4 +1,3 @@
-import * as consts from "../../constants/Constants";
 import { ActionType } from "../../types/ActionTypes";
 
 const initialState = {
@@ -11,8 +10,6 @@ export const MoviesReducer = (
 ) => {
   switch (type) {
     case ActionType.SET_MOVIES:
-      return { ...state, movies: payload };
-    case "DeleteMovie":
       return { ...state, movies: payload };
     default:
       return state;

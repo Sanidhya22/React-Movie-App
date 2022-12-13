@@ -17,12 +17,12 @@ export const DeleteMovie = (data: any) => async (dispatch: Dispatch) => {
 };
 export const OpenCloseShowMovieDetail = () => async (dispatch: Dispatch) => {
   dispatch({
-    type: ActionType.OpenCloseShowMovieDetail,
+    type: ActionType.OPEN_CLOSE_SHOW_MOVIE_DETAIL,
   });
 };
 export const SetMovieDetail = (Movie: any) => async (dispatch: Dispatch) => {
   dispatch({
-    type: ActionType.Moviedetail,
+    type: ActionType.MOVIE_DETAIL,
     payload: Movie,
   });
 };

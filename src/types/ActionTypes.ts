@@ -1,9 +1,9 @@
 export const ActionType = {
-  OpenCloseModal: "OpenCloseModal",
-  OpenCloseShowMovieDetail: "OpenCloseShowMovieDetail",
+  OPEN_CLOSE_MODAL: "OPEN_CLOSE_MODAL",
+  OPEN_CLOSE_SHOW_MOVIE_DETAIL: "OPEN_CLOSE_SHOW_MOVIE_DETAIL",
   SET_MOTAL: "SET_MOTAL",
-  Moviedetail: "Moviedetail",
-  ModalType: "ModalType",
+  MOVIE_DETAIL: "MOVIE_DETAIL",
+  MODAL_TYPE: "MODAL_TYPE",
   SET_MOVIES: "SET_MOVIES",
   SELECTED_MOVIE: "SELECTED_MOVIE",
 };
