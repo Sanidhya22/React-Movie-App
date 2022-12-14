@@ -15,6 +15,7 @@ const MovieList: React.FC = () => {
   const MovieList = Movies.map((movie: Movie) => {
     return <MovieCard movie={movie} key={movie.id} />;
   });
+  console.log("Check MovieList");
   return (
     <div className="Movielist">
       <Movielistheader />

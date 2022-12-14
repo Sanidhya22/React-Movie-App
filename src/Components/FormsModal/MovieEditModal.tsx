@@ -18,28 +18,18 @@ interface MyFormValues {
   runtime?: number;
   overview: string;
 }
-
 const MovieEditModal: React.FC = () => {
   const dispatch: Dispatch = useDispatch();
   const Movie = useSelector((state: AppState) => state.Popup.ModalMovie);
-  const dropdownOptions = [
-    { key: "Select Genere", value: "" },
-    { key: "React", value: "react" },
-    { key: "Angular", value: "angular" },
-  ];
-  console.log(Movie);
+  // const dropdownOptions = [
+  //   { key: "Select Genere", value: "" },
+  //   { key: "React", value: "react" },
+  //   { key: "Angular", value: "angular" },
+  // ];
+  console.log("Check");
   const FormTitle = Object.keys(Movie).length == 0 ? "ADD Movie" : "EDIT Movie";
-  const SampleValues: MyFormValues = {
-    title: "",
-    release_date: "08/02/1999",
-    poster_path: "",
-    vote_average: 0.0,
-    runtime: 0,
-    overview: "",
-  };
   const { title, release_date, poster_path, vote_average, runtime, overview } =
     Movie;
-  console.log("title");
   const initialValues = {
     title: title || "",
     release_date: release_date || "",
@@ -49,7 +39,7 @@ const MovieEditModal: React.FC = () => {
     overview: overview || "",
   };
   const onSubmit = (values: any) => {
-    console.log("Form data", values.title);
+    console.log("Form data", values);
   };
   const handelclose = () => {
     dispatch(SetModal({}, ""));
@@ -57,7 +47,7 @@ const MovieEditModal: React.FC = () => {
 
   const validationSchema = Yup.object({
     title: Yup.string().required("Required"),
-    release_date: Yup.date().required("Required").nullable(),
+    // release_date: Yup.date().required("Required").nullable(),
     poster_path: Yup.string()
       .matches(
         /((https?):\/\/)?(www.)?[a-z0-9]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA-Z0-9#]+)*\/?(\?[a-zA-Z0-9-_]+=[a-zA-Z0-9-%]+&?)?$/,
@@ -77,90 +67,94 @@ const MovieEditModal: React.FC = () => {
       <Formik
         initialValues={initialValues}
         onSubmit={onSubmit}
-        validationSchema={validationSchema}
+        // validationSchema={validationSchema}
       >
-        {({ values, handleChange, setValues, setFieldValue }) => (
-          <Form>
-            <div className="Two-Field">
-              <div className="Label-Input">
-                <label className="Label-Title" htmlFor="Title">
-                  Title
-                </label>
-                <Field
-                  className="Left-Input"
-                  id="title"
-                  name="title"
-                  placeholder="Title"
-                  onChange={handleChange}
-                  // value={values.title}
-                />
-              </div>
-            </div>
-            <div className="Two-Field">
-              <div className="Label-Input">
-                <label className="Label-Title" htmlFor="firstName">
-                  URL
-                </label>
-                <Field
-                  className="Left-Input"
-                  id="poster_path"
-                  name="poster_path"
-                  placeholder="URL"
-                  onChange={handleChange}
-                  // value={values.poster_path}
-                />
-              </div>
-
-              <div className="Label-Input">
-                <label className="Label-Title" htmlFor="firstName">
-                  Rating
-                </label>
-                <Field
-                  className="Right-Input"
-                  id="vote_average"
-                  name="vote_average"
-                  placeholder="Rating"
-                  onChange={handleChange}
-                  // value={values.vote_average}
-                />
-              </div>
-            </div>
-
-            <div className="Two-Field">
-              <div className="Label-Input">
-                <label className="Label-Title" htmlFor="firstName">
-                  Runtime
-                </label>
-                <Field
-                  className="Right-Input"
-                  id="runtime"
-                  name="runtime"
-                  placeholder="Movie Time"
-                  onChange={handleChange}
-                  // value={values.runtime}
-                />
-              </div>
-            </div>
+        <Form>
+          <div className="Two-Field">
             <div className="Label-Input">
-              <label className="Label-Title" htmlFor="firstName">
-                Overview
+              <label className="Label-Title" htmlFor="Title">
+                Title
               </label>
               <Field
-                className="Bottom-field"
-                component="textarea"
-                id="overview"
-                name="overview"
-                placeholder="Movie Overview"
-                onChange={handleChange}
-                // value={values.overview}
-              ></Field>
+                className="Left-Input"
+                id="title"
+                name="title"
+                placeholder="Title"
+                // onChange={() => {
+                //   console.log("on change");
+                // }}
+                // value={values.title}
+              />
             </div>
-            <DynamicBtn
+          </div>
+          <div className="Two-Field">
+            <div className="Label-Input">
+              <label className="Label-Title" htmlFor="firstName">
+                URL
+              </label>
+              <Field
+                className="Left-Input"
+                id="poster_path"
+                name="poster_path"
+                placeholder="URL"
+                // onChange={handleChange}
+                // value={values.poster_path}
+              />
+            </div>
+
+            <div className="Label-Input">
+              <label className="Label-Title" htmlFor="firstName">
+                Rating
+              </label>
+              <Field
+                className="Right-Input"
+                id="vote_average"
+                name="vote_average"
+                placeholder="Rating"
+                // onChange={handleChange}
+                // value={values.vote_average}
+              />
+            </div>
+          </div>
+
+          <div className="Two-Field">
+            <div className="Label-Input">
+              <label className="Label-Title" htmlFor="firstName">
+                Runtime
+              </label>
+              <Field
+                className="Right-Input"
+                id="runtime"
+                name="runtime"
+                placeholder="Movie Time"
+                // onChange={handleChange}
+                // value={values.runtime}
+              />
+            </div>
+          </div>
+          <div className="Label-Input">
+            <label className="Label-Title" htmlFor="firstName">
+              Overview
+            </label>
+            <Field
+              className="Bottom-field"
+              component="textarea"
+              id="overview"
+              name="overview"
+              placeholder="Movie Overview"
+              // onChange={handleChange}
+              // value={values.overview}
+            ></Field>
+          </div>
+          {/* <DynamicBtn
+              type="submit"
               styleClass={"search-btn"}
               btnName={"Submit"}
               btnFunction={onSubmit}
-            />
-            {/* <button
+            /> */}
+          <button type="submit">Submit</button>
+          {/* 
+            <button
               onClick={() => {
                 setValues(Movie);
               }}
@@ -168,8 +162,7 @@ const MovieEditModal: React.FC = () => {
             >
               Reset{" "}
             </button> */}
-          </Form>
-        )}
+        </Form>
       </Formik>
     </div>
   );
