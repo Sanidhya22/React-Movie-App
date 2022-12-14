@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import ErrorBoundary from "../Components/Error Boundry/ErrorBoundry";
 import Footer from "../Components/Footer/Footer";
 import MovieDetails from "../Components/MovieDetails/MovieDetails";
-import Movielist from "../Components/MovieList/MovieList";
+import MovieList from "../Components/MovieList/Movielist";
 import NavContaner from "../Components/Navbar/NavContainer";
 import { SetMovie } from "../redux/actions/MovieAction";
 import { AppState, Dispatch } from "../redux/reducers/RootReducer";
@@ -19,7 +19,7 @@ const HomePage: React.FC = () => {
     <ErrorBoundary>
       <div className="homepage">
         {Popup.ShowMovieDetail ? <MovieDetails /> : <NavContaner />}
-        <Movielist />
+        <MovieList />
         <Footer />
       </div>
     </ErrorBoundary>

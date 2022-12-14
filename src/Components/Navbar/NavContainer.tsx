@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { SetModal } from "../../redux/actions/MovieAction";
 import { Dispatch } from "../../redux/reducers/RootReducer";
 import DynamicButton from "../Buttons/DynamicBtn";
-import Searchform from "../Form/SearchForm";
+import Searchform from "../Form/searchForm";
 import Logo from "../Logo/Logo";
 import "./NavContaner.scss";
 import * as consts from "../../constants/Constants";
