@@ -1,45 +1,25 @@
 import * as React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import ErrorBoundary from "../Components/Error Boundry/ErrorBoundry";
 import Footer from "../Components/Footer/Footer";
 import MovieDetails from "../Components/MovieDetails/MovieDetails";
-import Movielist from "../Components/MovieList/MovieList";
+import MovieList from "../Components/MovieList/Movielist";
 import NavContaner from "../Components/Navbar/NavContainer";
-import { Movie } from "../types/Types";
+import { SetMovie } from "../redux/actions/MovieAction";
+import { AppState, Dispatch } from "../redux/reducers/RootReducer";
 import "./HomePage.css";
 
-type state = {
-  show: boolean;
-  movie?: Movie;
-};
 const HomePage: React.FC = () => {
-  const [Shoemoviedetail, setShoemoviedetail] = React.useState<state>({
-    show: false,
-    movie: undefined,
-  });
-  const Openmoviedetail = (movie: Movie) => {
-    setShoemoviedetail({
-      show: true,
-      movie,
-    });
-  };
-  const closemoviedetail = () => {
-    setShoemoviedetail({
-      show: false,
-      movie: undefined,
-    });
-  };
+  const Popup = useSelector((state: AppState) => state.Popup);
+  const dispatch: Dispatch = useDispatch();
+  React.useEffect(() => {
+    dispatch(SetMovie());
+  }, []);
   return (
     <ErrorBoundary>
       <div className="homepage">
-        {Shoemoviedetail.show ? (
-          <MovieDetails
-            closemoviedetail={closemoviedetail}
-            movie={Shoemoviedetail.movie}
-          />
-        ) : (
-          <NavContaner />
-        )}
-        <Movielist Openmoviedetail={Openmoviedetail} />
+        {Popup.ShowMovieDetail ? <MovieDetails /> : <NavContaner />}
+        <MovieList />
         <Footer />
       </div>
     </ErrorBoundary>

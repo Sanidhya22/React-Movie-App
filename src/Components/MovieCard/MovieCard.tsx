@@ -3,20 +3,28 @@ import "./MovieCard.scss";
 import { Movie, Moviecardprops } from "../../types/Types";
 import { GoKebabVertical } from "react-icons/go";
 import { GrClose } from "react-icons/gr";
-const MovieCard: React.FC<Moviecardprops> = ({
-  movie,
-  handleDelete,
-  Openmoviedetail,
-}) => {
+import { useDispatch } from "react-redux";
+import { Dispatch } from "../../redux/reducers/RootReducer";
+import {
+  OpenCloseShowMovieDetail,
+  SetModal,
+  SetMovieDetail,
+} from "../../redux/actions/MovieAction";
+import * as consts from "../../constants/Constants";
+
+const MovieCard: React.FC<Moviecardprops> = ({ movie }) => {
+  const dispatch: Dispatch = useDispatch();
+  const HandelMovieDetail = () => {
+    dispatch(OpenCloseShowMovieDetail());
+    dispatch(SetMovieDetail(movie));
+  };
   return (
     <div className="movie-item" key={movie.id}>
       {/* <Link to={`/movies/${movie.id}`}>
         // <img src={movie.poster_path} alt="movie-img" />
       </Link> */}
       <img
-        onClick={(e) => {
-          Openmoviedetail(movie, e);
-        }}
+        onClick={HandelMovieDetail}
         src={movie.poster_path}
         alt="movie-img"
       />
@@ -25,18 +33,13 @@ const MovieCard: React.FC<Moviecardprops> = ({
         <div className="date">{movie.release_date.slice(0, 4)}</div>
       </div>
       <p className="genre">{movie.genres.join(", ")}</p>
-      <MoviecardToffle moviedata={movie} handledelete={handleDelete} />
+      <MoviecardToffle moviedata={movie} />
     </div>
   );
 };
 
 type Moviecardtoggleprops = {
   moviedata: Movie;
-  handledelete: (
-    id: number,
-    modaltype: string,
-    event: React.MouseEvent<HTMLElement>
-  ) => void;
 };
 const MoviecardToffle: React.FC<Moviecardtoggleprops> = (props) => {
   const [OpenToggle, setOpenToggle] = useState(false);
@@ -46,11 +49,7 @@ const MoviecardToffle: React.FC<Moviecardtoggleprops> = (props) => {
   return (
     <div className="Moviecardtoffle">
       {OpenToggle ? (
-        <CardtoggleBtn
-          Closetoggle={Closetoggle}
-          data={props.moviedata}
-          handledelete={props.handledelete}
-        />
+        <CardtoggleBtn Closetoggle={Closetoggle} data={props.moviedata} />
       ) : (
         <GoKebabVertical
           onClick={() => {
@@ -62,39 +61,31 @@ const MoviecardToffle: React.FC<Moviecardtoggleprops> = (props) => {
     </div>
   );
 };
-
-export interface Cardtofflebuttonprops {
+type Cardtofflebuttonprops = {
   Closetoggle: () => void;
   data: Movie;
-  handledelete: (
-    id: number,
-    modaltype: string,
-    event: React.MouseEvent<HTMLElement>
-  ) => void;
-}
+};
 const CardtoggleBtn: React.FC<Cardtofflebuttonprops> = (props) => {
-  console.log(props);
+  const dispatch: Dispatch = useDispatch();
   const data = props.data;
   const Closetoggle = props.Closetoggle;
-  const handledelete = props.handledelete;
+  const HandleClick = (movie: Movie, type: string) => {
+    dispatch(SetModal(data, type));
+  };
   return (
-    <div className="Cardtofflebutton">
-      <span
-        onClick={(e) => {
-          handledelete(data.id, "editmoviemodal", e);
-        }}
-      >
-        Edit
-      </span>
-      <span
-        onClick={(e) => {
-          handledelete(data.id, "deletemodal", e);
-        }}
-      >
-        Delete
-      </span>
-      <GrClose className="close" size={20} onClick={Closetoggle} />
-    </div>
+    <>
+      <div className="Cardtofflebutton">
+        <span onClick={() => HandleClick(data, consts.movie.modal.FORM_MODAL)}>
+          Edit
+        </span>
+        <span
+          onClick={() => HandleClick(data, consts.movie.modal.DELETE_MODAL)}
+        >
+          Delete
+        </span>
+        <GrClose className="close" size={20} onClick={Closetoggle} />
+      </div>
+    </>
   );
 };
 

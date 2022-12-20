@@ -1,9 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { useSelector } from "react-redux";
+import { AppState } from "../../redux/reducers/RootReducer";
 
 import "./Modals.scss";
 const Modals = (props: any) => {
-  if (!props.open) {
+  const Popup = useSelector((state: AppState) => state.Popup);
+  if (!Popup.ShowModal) {
     return null;
   }
   return ReactDOM.createPortal(

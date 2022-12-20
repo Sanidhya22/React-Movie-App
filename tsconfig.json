@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "types": ["...", "@types/jest"],
+    "typeRoots": ["node_modules/yup"],
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,

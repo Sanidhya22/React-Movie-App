@@ -1,15 +1,15 @@
 import * as React from "react";
 import { Component } from "react";
-import Genrelist from "./Genrelist/GenreList";
+import GenreList from "./Genrelist/Genrelist";
 
 import "./MovielistHeader.scss";
-import Sortdrop from "./SortbyDrop/SortDrop";
+import SortDrop from "./SortbyDrop/Sortdrop";
 
 const MovieListHeader: React.FC = () => {
   return (
     <div className="Movielistheader">
-      <Genrelist />
-      <Sortdrop />
+      <GenreList />
+      <SortDrop />
     </div>
   );
 };
